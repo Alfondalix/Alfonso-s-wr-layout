@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+#hamburger {
+  display: none;
+}
+.logo {
+  font-size: 40px;
+  color: red;
+  margin: 10px 40px;
+}
+.nav {
+  position: fixed;
+  width: 100%;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #000;
+}
+
+.nav-list li {
+  display: inline-block;
+  padding: 20px;
+  margin: 0px 20px;
+  list-style: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  #hamburger {
+    display: inline-flex;
+    margin: 10px 40px;
+    font-size: 20px;
+  }
+  .nav-list {
+    display: none;
+  }
+}
