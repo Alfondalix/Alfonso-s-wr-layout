@@ -97,6 +97,7 @@
   }
   .main-cont {
     flex: 6;
+    border-right: 2px solid #e0e0e0;
   }
   .ads-container {
     flex-direction: column;
