@@ -5,71 +5,69 @@
   font-family: 'Roboto', sans-serif;
 }
 
-@media (min-width: 375px) {
-  footer {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-  }
+footer {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
 
-  .foot-main-title {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    height: 44px;
-    background-color: #e0e0e0;
-    color: #424242;
-    font-size: 22px;
-    font-weight: 500;
-  }
+.foot-main-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 44px;
+  background-color: #e0e0e0;
+  color: #424242;
+  font-size: 22px;
+  font-weight: 500;
+}
 
-  .foot-main-title p {
-    margin: 0px 40px;
-  }
+.foot-main-title p {
+  margin: 0px 40px;
+}
 
-  .foot-list {
-    display: flex;
-    justify-content: center;
-    background-color: #212121;
-    border-bottom: 1px solid #e0e0e0;
-  }
+.foot-list {
+  display: flex;
+  justify-content: center;
+  background-color: #212121;
+  border-bottom: 1px solid #e0e0e0;
+}
 
-  .foot-list li {
-    list-style: none;
-  }
+.foot-list li {
+  list-style: none;
+}
 
-  .foot-list a {
-    display: flex;
-    justify-content: center;
-    margin: 10px;
-    color: #f8f8f8;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-  }
+.foot-list a {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  color: #f8f8f8;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
 
-  .foot-list a:hover {
-    color: #c62828;
-  }
+.foot-list a:hover {
+  color: #c62828;
+}
 
-  .foot-last {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #212121;
-    height: 40px;
-    color: #f8f8f8;
-    border: none;
-    font-weight: 500;
-    margin-bottom: 0px;
-  }
+.foot-last {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #212121;
+  height: 40px;
+  color: #f8f8f8;
+  border: none;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
 
-  .foot-last p {
-    font-size: 12px;
-  }
+.foot-last p {
+  font-size: 12px;
 }
 
 @media (min-width: 900px) {
