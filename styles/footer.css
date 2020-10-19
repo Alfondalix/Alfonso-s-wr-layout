@@ -7,7 +7,7 @@
 
 @media (min-width: 480px) {
   footer {
-    margin-top: 100px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -23,6 +23,7 @@
     background-color: #e0e0e0;
     color: #424242;
     font-size: 22px;
+    font-weight: 500;
   }
 
   .foot-main-title p {
@@ -62,9 +63,12 @@
     height: 40px;
     color: #f8f8f8;
     border: none;
-    font-size: 12px;
     font-weight: 500;
     margin-bottom: 0px;
+  }
+
+  .foot-last p {
+    font-size: 12px;
   }
 }
 
