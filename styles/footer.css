@@ -70,7 +70,7 @@ footer {
   font-size: 12px;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 640px) {
   .foot-list ul {
     display: flex;
     flex-direction: row;
