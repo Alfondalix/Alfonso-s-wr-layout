@@ -1,5 +1,11 @@
-# Link to GitHub page:
+# Alfonso's Weekly Report
 
----
+\*\* version 1.2
 
-https://alfondalix.github.io/Alfonso-s-wr-layout/
+Page layout for Radium Rocket.
+
+--
+
+## link to page:
+
+alfondalix.github.io/Alfonso-s-wr-layout
