@@ -38,24 +38,51 @@
 }
 
 .registration-form label {
-  font-size: 16px;
+  padding-bottom: 8px;
+  font-size: 20px;
   font-weight: 600;
   color: #000;
 }
 
 .registration-form input {
   font-size: 16px;
+  font-weight: 500;
   padding-top: 15px;
   border: none;
   border-bottom: 1px solid #e8e8e8;
 }
 
+.registration-form input:focus {
+  outline: none;
+}
+
 .btn-submit {
-  width: 20%;
+  width: 90px !important;
   text-align: center;
   margin: 20px 30px;
   font-weight: 600;
   padding: 10px !important;
   border: none !important;
   border-radius: 10%;
+}
+
+.btn-submit:hover {
+  color: #e8e8e8;
+  background-color: #000;
+}
+
+@media (min-width: 900px) {
+  .registration-form {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .registration-form div {
+    width: 44%;
+    margin-top: 40px;
+  }
+
+  .registration-form input {
+    width: 80%;
+  }
 }
