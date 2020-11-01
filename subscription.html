@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet"> 
+    <!-- js -->
+    <script src="./js/app.js"></script>
     <title>AWR Subscription</title>
 </head>
 <body>
@@ -22,55 +24,55 @@
                 <a href="#"><li>Travel</li></a>
                 <a href="#"><li>Sports</li></a>
                 <a href="#"><li>Politics</li></a>
-                <a href="#"><li>More</li></a>
+                <a href="./index.html"><li>Main page</li></a>
             </ul>
             <i id="hamburger" class="fas fa-bars"></i>
         </nav>
     </header>
     <div class="registration">
         <h1 class="registration-title">Registration</h1>
-        <form action="" class="registration-form">        
+        <form action="subimt" class="registration-form" id="form-body">        
             <div class="registration-name">
                 <label for="fullName">Full Name:</label>
-                <input type="text" name="fullName" autocomplete="off" >
+                <input type="text" name="fullName" id="full-name">
             </div>
             <div class="registration-email">
                 <label for="email">Email:</label>
-                <input type="email" name="email" autocomplete="off">
+                <input type="email" name="email" id="email">
             </div>
             <div class="registration-password">
                 <label for="password">Password:</label>
-                <input type="password" name="password">
+                <input type="password" name="password" id="password">
             </div>
             <div class="registration-password-repeat">
                 <label for="password2">Repeat password:</label>
-                <input type="password" name="password2">
+                <input type="password" name="password2" id="rep-password">
             </div>
             <div class="registration-age">
                 <label for="age">Age:</label>
-                <input type="number" name="age" autocomplete="off">
+                <input type="number" name="age" id="age">
             </div>
             <div class="registration-number">
                 <label for="phone">Phone number:</label>
-                <input type="tel" name="phoneNumber" autocomplete="off">
+                <input type="tel" name="phoneNumber" id="phone">
             </div>
             <div class="registration-address">
                 <label for="address">Address:</label>
-                <input type="text" name="address">
+                <input type="text" name="address" id="address">
             </div>
             <div class="registration-city">
                 <label for="city">City:</label>
-                <input type="text" name="city" autocomplete="off">
+                <input type="text" name="city" autocomplete="off" id="city">
             </div>
             <div class="registration-postalcode">
                 <label for="postalCode">Postal Code:</label>
-                <input type="text" name="postalCode" autocomplete="off">
+                <input type="text" name="postalCode" id="postal-code">
             </div>
             <div class="registration-id">
                 <label for="id">ID Number:</label>
-                <input type="text" name="id" autocomplete="off">
+                <input type="text" name="id" id="id-number">
             </div>
-            <input type="button" value="Submit" class="btn-submit">
+            <button class="btn-submit">Submit</button>
         </form>
     </div>
     <footer>
