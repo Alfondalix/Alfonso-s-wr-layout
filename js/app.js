@@ -49,11 +49,82 @@ window.onload = function(){
         }
     }
 
+    repeatPassword.onblur = checkPassword;
+
     function checkPassword(){
         if(password.value !== repeatPassword.value){
             console.log("Passwords doesn't match")
+        }else{
+            console.log("okay")
         }
     }
-    
+
+    age.onblur = checkAge;
+
+    function checkAge(){
+        if(age.value <= 18){
+            console.log("You must be 18 or above to submit");
+        }else if(!Number.isInteger(age.value)){
+            console.log("age must be an integer");
+        }else{
+            console.log("okay")
+        }
+    }
+
+    phoneNumber.onblur = checkPhoneNumber;
+
+    function checkPhoneNumber(){
+        if (/\D\w\S/.test(phoneNumber.value)) {
+            console.log("Phone number must no contain spaces or signs");
+        }else if(phoneNumber.value.length < 7){
+            console.log("Number is too short");
+        }else {
+            console.log("okay");
+        }
+    }
+
+    address.onblur = checkAddress;
+
+    function checkAddress(){
+        if (address.value.length < 5) {    
+            console.log("address is too short")   
+        }else if(/\w\s\d/.test(address.value)){
+            console.log("okay m8")
+        }else{
+            console.log("Formato de direccón invalido")
+        }
+    }
+
+    city.onblur = checkCity;
+
+    function checkCity(){
+        if (city.value.length < 3) {
+            console.log("city's name must be longer than 3");
+        }else{
+            console.log("okay");
+        }
+    }
+
+    postalCode.onblur = checkPostalCode;
+
+    function checkPostalCode(){
+        if (postalCode.value.length < 3) {
+            console.log("postal code must be longer than 3");
+        }else{
+            console.log("okay");
+        }
+    }
+
+    idNumber.onblur = checkId;
+
+    function checkId(){
+        if(idNumber.value.length < 7){
+            console.log("the id number is incorrect can't be under 7 digits");
+        }else if(idNumber.value.length > 8){
+            console.log("the id number is incorrect can't be longer 8 digits");
+        }else{
+            console.log("okay")
+        }
+    }
 }
 
