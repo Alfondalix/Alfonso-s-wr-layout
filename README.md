@@ -1,11 +1,15 @@
 # Alfonso's Weekly Report
 
-**version 1.2**
+**version 1.4**
 
 News web layout for Radium Rocket.
 
 ---
 
-## To page:
+## To main page:
 
 https://alfondalix.github.io/Alfonso-s-wr-layout/
+
+## Form page:
+
+https://alfondalix.github.io/Alfonso-s-wr-layout/subscription.html
