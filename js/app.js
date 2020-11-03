@@ -141,10 +141,6 @@ function displayName(e){
     document.getElementById("welcome").innerText = ": Hello, " + e.target.value;
 }
 
-function handleInfo(e){
-    alert()
-}
-
 window.onload = function(){
 
     var fullName = document.getElementById("full-name");
