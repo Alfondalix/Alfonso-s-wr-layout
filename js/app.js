@@ -1,130 +1,199 @@
-// Selectors
+//validators
+function validateFullname(e){
+    var errorName = document.getElementById("error-name");
+    var fullnameValue = e.target.value;
+    if(fullnameValue.length < 6){
+        errorName.className = "error-invisible";
+        errorName.innerText = "Must have more than 6 characters";
+    }
+    else if (!fullnameValue.includes(" ")) {
+        errorName.className = "error-invisible";
+        errorName.innerText = "Must have an space between";
+    }else{
+        errorName.innerText ="";
+    }
+ }
+
+ function validateEmail(e){
+     var errorEmail = document.getElementById("error-email");
+     var emailValue = e.target.value;
+    if(/^\w+([\.-]?\w+)*@(?:|hotmail|outlook|yahoo|live|gmail)\.(?:|com|es)+$/.test(emailValue)){
+        errorEmail.innerText = "";
+    }else{
+        errorEmail.className = "error-invisible";
+        errorEmail.innerText = "Invalid email";
+    }
+}
+
+function validatePassword(e){
+    var errorPass = document.getElementById("error-password");
+    var passValue = e.target.value;
+    if (passValue.length < 8) {
+        errorPass.className = "error-invisible";
+        errorPass.innerText = "Password is too short";
+    } else if (passValue.search(/\d/) == -1) {
+        errorPass.className = "error-invisible"
+        errorPass.innerText = "Password must have a number";
+    } else if (passValue.search(/[a-zA-Z]/) == -1) {
+        errorPass.className = "error-invisible"
+        errorPass.innerText = "Password must have a character";
+    } else {
+        errorPass.innerText = "";
+    }
+}
+
+function checkPassword(e){
+    var errorRepPass = document.getElementById("error-rep-password");
+    var e = e.target.value;
+    if(password.value !== e){
+        errorRepPass.className = "error-invisible";
+        errorRepPass.innerText = "Passwords doesn't match";
+    }else{
+        errorRepPass.innerText= "";
+    }
+}
+
+function validateAge(e){
+    var errorAge = document.getElementById("error-age");
+    var ageValue = e.target.value;
+    parseInt(ageValue);
+    if(ageValue <= 18){
+        errorAge.className = "error-invisible";
+        errorAge.innerText = "You must be 18 or above tu submit";
+    }else if(typeof(ageValue) != "number"){;
+        errorAge.className = "error-invisible"
+        errorAge.innerText = "Age must be an integer";
+    }else{
+        errorAge.innerText = "";
+    }
+}
+
+function validatePhoneNumber(e){
+    var phoneValue = e.target.value;
+    var errorPhone = document.getElementById("error-phone");
+    if (/\D\w\S/.test(phoneValue)) {
+        errorPhone.className = "error-invisible";
+        errorPhone.innerText = "Phone number must no contain spaces or signs";
+    }else if(phoneValue.length < 7){
+        errorPhone.className = "error-invisible";
+        errorPhone.innerText = "Number is too short";
+    }else {
+        errorPhone.innerText = "";
+    }
+}
+
+function validateAddress(e){
+    var errorAddress = document.getElementById("error-address");
+    var addressValue = e.target.value;
+    if (addressValue.length < 5) {   
+        errorAddress.className = "error-invisible";
+        errorAddress.innerText = "Address is too short";  
+    }else if(/\w\s\d/.test(addressValue)){
+        errorAddress.innerText = "";
+    }else{
+        errorAddress.className = "error-invisible";
+        errorAddress.innerText = "Invalid address format";
+    }
+}
+
+function validateCity(e){
+    var errorCity = document.getElementById("error-city");
+    var cityValue = e.target.value;
+    if (cityValue.length < 3) {
+        errorCity.className = "error-invisible";
+        errorCity.innerText = "City's name must be longer than 3 characters";
+    }else{
+        errorCity.innerText ="";
+    }
+}
+
+function validatePostalCode(e){
+    var errorPostal = document.getElementById("error-postal");
+    var postalValue = e.target.value;
+    if (postalValue.length < 3) {
+        errorPostal.className = "error-invisible";
+        errorPostal.innerText = "Postal code must be longer than 3";
+    }else{
+        errorPostal.innerText = "";
+    }
+}
+
+function validateId(e){
+    var errorId = document.getElementById("error-id");
+    var idValue = e.target.value;
+    if(idValue.length < 7){
+        errorId.className = "error-invisible";
+        errorId.innerText = "ID number can't be shorter than 7 digits";
+    }else if(idValue.length > 8){
+        errorId.className = "error-invisible";
+        errorId.innerText = "ID number can't be longer than 8 digits";
+    }else{
+        errorId.innerText= "";
+    }
+}
+
+function eraseField(){
+    var blank = document.querySelector(".error-invisible");
+    blank.className = "error-invisible-action";
+}
+
+function displayName(e){
+    document.getElementById("welcome").innerText = ": Hello, " + e.target.value;
+}
+
+function handleInfo(e){
+    alert()
+}
 
 window.onload = function(){
+
     var fullName = document.getElementById("full-name");
-    var email = document.getElementById("email");
-    var password = document.getElementById("password");
-    var repeatPassword = document.getElementById("rep-password");
-    var age = document.getElementById("age");
-    var phoneNumber = document.getElementById("phone");
-    var address = document.getElementById("address");
-    var city = document.getElementById("city");
-    var postalCode = document.getElementById("postal-code");
-    var idNumber = document.getElementById("id-number");
-    var regForm = document.getElementById("form-body");
-
-
     fullName.onblur = validateFullname;
+    fullName.onfocus = eraseField;
+    fullName.addEventListener("keydown", displayName);
 
-    function validateFullname(){
-       if(fullName.value.length < 6){
-           console.log("el nombre debe tener mas de 6 caracteres");
-       }
-       if (!fullName.value.includes(" ")) {
-           console.log("el nombre debe tener un espacio entre medio")
-       }
-    }
-
+    var email = document.getElementById("email");
     email.onblur = validateEmail;
+    email.onfocus = eraseField;
 
-    function validateEmail(){
-        if(/^\w+([\.-]?\w+)*@(?:|hotmail|outlook|yahoo|live|gmail)\.(?:|com|es)+$/.test(email.value)){
-            console.log("correo aceptado");
-        }else{
-            console.log("la dirección de email no es válida")
-        }
-    }
+    var password = document.getElementById("password");
+    password.onblur = validatePassword;
+    password.onfocus = eraseField;
 
-    password.onblur = validatePassword  ;
-
-    function validatePassword(){
-        if (password.value.length < 8) {
-            console.log("password is too short");
-        } else if (password.value.search(/\d/) == -1) {
-            console.log("password needs to have a number");
-        } else if (password.value.search(/[a-zA-Z]/) == -1) {
-            console.log("password needs to have a character");
-        } else {
-            console.log("continue");
-        }
-    }
-
+    var repeatPassword = document.getElementById("rep-password");
     repeatPassword.onblur = checkPassword;
+    repeatPassword.onfocus = eraseField;
 
-    function checkPassword(){
-        if(password.value !== repeatPassword.value){
-            console.log("Passwords doesn't match")
-        }else{
-            console.log("okay")
-        }
-    }
+    var age = document.getElementById("age");
+    age.onblur = validateAge;
+    age.onfocus = eraseField;
 
-    age.onblur = checkAge;
+    var phoneNumber = document.getElementById("phone");
+    phoneNumber.onblur = validatePhoneNumber;
+    phoneNumber.onfocus = eraseField;
 
-    function checkAge(){
-        if(age.value <= 18){
-            console.log("You must be 18 or above to submit");
-        }else if(!Number.isInteger(age.value)){
-            console.log("age must be an integer");
-        }else{
-            console.log("okay")
-        }
-    }
+    var address = document.getElementById("address");
+    address.onblur = validateAddress;
+    address.onfocus = eraseField;
 
-    phoneNumber.onblur = checkPhoneNumber;
+    var city = document.getElementById("city");
+    city.onblur = validateCity;
+    city.onfocus = eraseField;
 
-    function checkPhoneNumber(){
-        if (/\D\w\S/.test(phoneNumber.value)) {
-            console.log("Phone number must no contain spaces or signs");
-        }else if(phoneNumber.value.length < 7){
-            console.log("Number is too short");
-        }else {
-            console.log("okay");
-        }
-    }
+    var postalCode = document.getElementById("postal-code");
+    postalCode.onblur = validatePostalCode;
+    postalCode.onfocus = eraseField;
 
-    address.onblur = checkAddress;
+    var idNumber = document.getElementById("id-number");
+    idNumber.onblur = validateId;
+    idNumber.onfocus = eraseField;
 
-    function checkAddress(){
-        if (address.value.length < 5) {    
-            console.log("address is too short")   
-        }else if(/\w\s\d/.test(address.value)){
-            console.log("okay m8")
-        }else{
-            console.log("Formato de direccón invalido")
-        }
-    }
+    var btn = document.getElementById("btn-submit");
+    btn.addEventListener("click", function(e){
+        alert("form sent, " + "full name: " + fullName.value  + ", email: " + email.value + ", age: " + age.value + "phone number: " + phoneNumber.value + ", address: " + address.value + ", city: " + city.value + ", postal code: " + postalCode.value + ", id number: " + idNumber.value + "."
+        )
+        e.preventDefault();
+    })
 
-    city.onblur = checkCity;
-
-    function checkCity(){
-        if (city.value.length < 3) {
-            console.log("city's name must be longer than 3");
-        }else{
-            console.log("okay");
-        }
-    }
-
-    postalCode.onblur = checkPostalCode;
-
-    function checkPostalCode(){
-        if (postalCode.value.length < 3) {
-            console.log("postal code must be longer than 3");
-        }else{
-            console.log("okay");
-        }
-    }
-
-    idNumber.onblur = checkId;
-
-    function checkId(){
-        if(idNumber.value.length < 7){
-            console.log("the id number is incorrect can't be under 7 digits");
-        }else if(idNumber.value.length > 8){
-            console.log("the id number is incorrect can't be longer 8 digits");
-        }else{
-            console.log("okay")
-        }
-    }
 }
 

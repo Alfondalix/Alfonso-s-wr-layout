@@ -5,6 +5,32 @@
   font-family: 'Roboto', sans-serif;
 }
 
+#welcome {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+#error-name,
+#error-email,
+#error-password,
+#error-rep-password,
+#error-age,
+#error-phone,
+#error-addres,
+#error-city,
+#error-postal,
+#error-id,
+.error-invisible {
+  color: red;
+  margin-top: 10px;
+}
+
+.error-invisible-action {
+  visibility: hidden !important;
+}
+
 .registration {
   display: flex;
   flex-wrap: wrap;
@@ -74,6 +100,8 @@
 
 @media (min-width: 900px) {
   .registration-form {
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
   }
