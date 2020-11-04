@@ -250,7 +250,7 @@ window.onload = function(){
     fullName.addEventListener("focus", function(){
         document.getElementById("error-name").style.visibility =" hidden";
     });
-    fullName.addEventListener("keydown", displayName);
+    fullName.addEventListener("keyup", displayName);
 
     var email = document.getElementById("email");
     email.onblur = validateEmail;
