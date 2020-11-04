@@ -25,10 +25,7 @@
 .error-invisible {
   color: red;
   margin-top: 10px;
-}
-
-.error-invisible-action {
-  visibility: hidden !important;
+  visibility: hidden;
 }
 
 .registration {

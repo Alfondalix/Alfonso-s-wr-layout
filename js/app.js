@@ -1,16 +1,11 @@
-//validators
+//validator functions
 function validateFullname(e){
     var errorName = document.getElementById("error-name");
     var fullnameValue = e.target.value;
-    if(fullnameValue.length < 6){
-        errorName.className = "error-invisible";
-        errorName.innerText = "Must have more than 6 characters";
-    }
-    else if (!fullnameValue.includes(" ")) {
-        errorName.className = "error-invisible";
-        errorName.innerText = "Must have an space between";
+    if(fullnameValue.length > 6 && fullnameValue.includes(" ")){
+        errorName.style.visibility = "hidden";
     }else{
-        errorName.innerText ="";
+        errorName.style.visibility = "visible";
     }
  }
 
@@ -18,67 +13,57 @@ function validateFullname(e){
      var errorEmail = document.getElementById("error-email");
      var emailValue = e.target.value;
     if(/^\w+([\.-]?\w+)*@(?:|hotmail|outlook|yahoo|live|gmail)\.(?:|com|es)+$/.test(emailValue)){
-        errorEmail.innerText = "";
+        errorEmail.style.visibility = "hidden";
     }else{
-        errorEmail.className = "error-invisible";
-        errorEmail.innerText = "Invalid email";
+        errorEmail.style.visibility = "visible";
     }
 }
 
 function validatePassword(e){
     var errorPass = document.getElementById("error-password");
     var passValue = e.target.value;
-    if (passValue.length < 8) {
-        errorPass.className = "error-invisible";
-        errorPass.innerText = "Password is too short";
-    } else if (passValue.search(/\d/) == -1) {
-        errorPass.className = "error-invisible"
-        errorPass.innerText = "Password must have a number";
-    } else if (passValue.search(/[a-zA-Z]/) == -1) {
-        errorPass.className = "error-invisible"
-        errorPass.innerText = "Password must have a character";
-    } else {
-        errorPass.innerText = "";
+    if (passValue.length < 8){
+        errorPass.style.visibility = "visible";
+    }  else if(passValue.search(/\d/) == -1) {
+        errorPass.style.visibility = "visible";
+    }else if(passValue.search(/[a-zA-Z]/) == -1){
+        errorPass.style.visibility = "visible";
+    } else{
+        errorPass.style.visibility = "hidden";  
     }
 }
 
 function checkPassword(e){
     var errorRepPass = document.getElementById("error-rep-password");
-    var e = e.target.value;
-    if(password.value !== e){
-        errorRepPass.className = "error-invisible";
-        errorRepPass.innerText = "Passwords doesn't match";
+    var ex = e.target.value;
+    if(password.value !== ex){
+        errorRepPass.style.visibility = "visible";
     }else{
-        errorRepPass.innerText= "";
+        errorRepPass.style.visibility = "hidden";
     }
 }
 
 function validateAge(e){
     var errorAge = document.getElementById("error-age");
     var ageValue = e.target.value;
-    parseInt(ageValue);
-    if(ageValue <= 18){
-        errorAge.className = "error-invisible";
-        errorAge.innerText = "You must be 18 or above tu submit";
-    }else if(typeof(ageValue) != "number"){;
-        errorAge.className = "error-invisible"
-        errorAge.innerText = "Age must be an integer";
+    if(isNaN(ageValue)){
+        errorAge.style.visibility = "visible";
     }else{
-        errorAge.innerText = "";
+        if ((ageValue % 1 ===0) && (ageValue >=18)) {
+            errorAge.style.visibility = "hidden";
+        }else {
+            errorAge.style.visibility = "visible";
+        }
     }
 }
 
 function validatePhoneNumber(e){
     var phoneValue = e.target.value;
     var errorPhone = document.getElementById("error-phone");
-    if (/\D\w\S/.test(phoneValue)) {
-        errorPhone.className = "error-invisible";
-        errorPhone.innerText = "Phone number must no contain spaces or signs";
-    }else if(phoneValue.length < 7){
-        errorPhone.className = "error-invisible";
-        errorPhone.innerText = "Number is too short";
+    if (/\D\w\S/.test(phoneValue) || phoneValue.length < 7) {
+        errorPhone.style.visibility = "visible";
     }else {
-        errorPhone.innerText = "";
+        errorPhone.style.visibility = "hidden";
     }
 }
 
@@ -86,13 +71,11 @@ function validateAddress(e){
     var errorAddress = document.getElementById("error-address");
     var addressValue = e.target.value;
     if (addressValue.length < 5) {   
-        errorAddress.className = "error-invisible";
-        errorAddress.innerText = "Address is too short";  
-    }else if(/\w\s\d/.test(addressValue)){
-        errorAddress.innerText = "";
+        errorAddress.style.visibility = "visible";
+    }else if(/\w\s\d/.test(addressValue) == false){
+        errorAddress.style.visibility = "visible";
     }else{
-        errorAddress.className = "error-invisible";
-        errorAddress.innerText = "Invalid address format";
+        errorAddress.style.visibility = "hidden";
     }
 }
 
@@ -100,10 +83,9 @@ function validateCity(e){
     var errorCity = document.getElementById("error-city");
     var cityValue = e.target.value;
     if (cityValue.length < 3) {
-        errorCity.className = "error-invisible";
-        errorCity.innerText = "City's name must be longer than 3 characters";
+        errorCity.style.visibility = "visible";
     }else{
-        errorCity.innerText ="";
+        errorCity.style.visibility = "hidden";
     }
 }
 
@@ -111,10 +93,9 @@ function validatePostalCode(e){
     var errorPostal = document.getElementById("error-postal");
     var postalValue = e.target.value;
     if (postalValue.length < 3) {
-        errorPostal.className = "error-invisible";
-        errorPostal.innerText = "Postal code must be longer than 3";
+        errorPostal.style.visibility = "visible"
     }else{
-        errorPostal.innerText = "";
+        errorPostal.style.visibility = "hidden";
     }
 }
 
@@ -122,74 +103,207 @@ function validateId(e){
     var errorId = document.getElementById("error-id");
     var idValue = e.target.value;
     if(idValue.length < 7){
-        errorId.className = "error-invisible";
-        errorId.innerText = "ID number can't be shorter than 7 digits";
+        errorId.style.visibility = "visible";
     }else if(idValue.length > 8){
-        errorId.className = "error-invisible";
-        errorId.innerText = "ID number can't be longer than 8 digits";
+        errorId.style.visibility= "visible";
     }else{
-        errorId.innerText= "";
+        errorId.style.visibility= "hidden";
     }
 }
 
-function eraseField(){
-    var blank = document.querySelector(".error-invisible");
-    blank.className = "error-invisible-action";
-}
 
+//Display name in title
 function displayName(e){
     document.getElementById("welcome").innerText = ": Hello, " + e.target.value;
 }
+
+//input alerts
+
+function submData(){
+    
+    var err= [];
+    var sub = [];
+    var fulln = document.getElementById("full-name").value;
+    var email = document.getElementById("email").value;
+    var pass = document.getElementById("password").value;
+    var age = document.getElementById("age").value;
+    var phone = document.getElementById("phone").value;
+    var address = document.getElementById("address").value;
+    var city = document.getElementById("city").value;
+    var postalC = document.getElementById("postal-code").value;
+    var id = document.getElementById("id-number").value;
+
+    // name err
+    if(fulln.length > 6 && fulln.includes(" ")){
+        document.getElementById("error-name").style.visibility ="hidden";
+        sub.push("name: " + fulln)
+    }else{
+        document.getElementById("error-name").style.visibility ="visible";
+        err.push("name: invalid name");
+    }
+
+    //email err
+    var regexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if(regexEmail.test(email)){
+        document.getElementById("error-email").style.visibility ="hidden";
+        sub.push("email: " + email);
+    }else{
+        document.getElementById("error-email").style.visibility ="visible";
+        err.push("email: invalid email");
+    }
+
+    //password err
+    var passCheck = /^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ]/;
+    if(passCheck.test(pass) && pass.length >= 8){
+        document.getElementById("error-password").style.visibility = "hidden";
+        sub.push("password: "+ pass);
+    }else{
+        document.getElementById("error-password").style.visibility = "visible";
+        err.push("password: invalid password");
+    }
+
+    //age err
+    if(isNaN(age)){
+        document.getElementById("error-age").style.visibility = "visible";
+        err.push("age: invalid age");
+    }else if(age < 18){
+        document.getElementById("error-age").style.visibility = "visible";
+        err.push("age: invalid age");
+    }else{
+        document.getElementById("error-age").style.visibility = "hidden";
+        sub.push("age: "+ age);
+    }
+
+    //phone err
+    if(isNaN(phone)){
+        document.getElementById("error-phone").style.visibility = "visible"
+        err.push("phone: invalid phone number");
+    }else if(phone.length < 7 || space.test(phone)){
+        document.getElementById("error-phone").style.visibility = "visible"
+        err.push("phone: invalid phone number");
+    }else{
+        document.getElementById("error-phone").style.visibility = "hidden"
+        sub.push("phone: "+ phone);
+    }
+
+    //address err
+    let addressReg = /\w/g;
+    let addSpace = /\s\d/g;
+    if(address.length >= 5 && addressReg.test(address) && addSpace.test(address)){
+        document.getElementById("error-address").style.visibility = "visible"
+        err.push("address: invalid addres");
+    }else{
+        document.getElementById("error-address").style.visibility = "hidden"
+        sub.push("phone: invalid phone number");
+    }
+
+    //city err
+    var cityReg = /[a-zA-Z]/g;
+    if(city.length >= 3 && cityReg.test(city)){
+        document.getElementById("error-city").style.visibility = "hidden";
+        sub.push("city: " + city);
+    }else{
+        document.getElementById("error-city").style.visibility = "visible";
+        err.push("city: invalid city");
+    }
+
+    //postal err
+    var postalReg = /\d/g;
+    if(postalC.length >= 3 && postalReg.test(postalC)){
+        document.getElementById("error-postal").style.visibility = "hidden";
+        sub.push("postal: "+ postal);
+    }else{
+        document.getElementById("error-postal").style.visibility = "visible";
+        err.push("postal: invalid postal code");
+    }
+
+    //id err
+    var idReg = /\d/g;
+    if(id.length >= 7 && id.length <= 8 && idReg.test(id)){
+        document.getElementById("error-id").style.visibility = "hidden";
+        sub.push("ID: "+ id);
+    }else{
+        document.getElementById("error-id").style.visibility = "visible";
+        err.push("ID: invalid ID");
+    }
+
+    //display alerts
+    var errAlert = err.join("\n");   
+    if(errAlert == ""){
+        var subAlert = sub.join("\n");
+        alert(subAlert);
+    }else{
+        alert(errAlert);
+    }
+}
+
+
 
 window.onload = function(){
 
     var fullName = document.getElementById("full-name");
     fullName.onblur = validateFullname;
-    fullName.onfocus = eraseField;
+    fullName.addEventListener("focus", function(){
+        document.getElementById("error-name").style.visibility =" hidden";
+    });
     fullName.addEventListener("keydown", displayName);
 
     var email = document.getElementById("email");
     email.onblur = validateEmail;
-    email.onfocus = eraseField;
+    email.addEventListener("focus", function(){
+        document.getElementById("error-email").style.visibility = "hidden";
+    })
 
     var password = document.getElementById("password");
     password.onblur = validatePassword;
-    password.onfocus = eraseField;
+    password.addEventListener("focus", function(){
+        document.getElementById("error-password").style.visibility = "hidden";
+    })
 
     var repeatPassword = document.getElementById("rep-password");
     repeatPassword.onblur = checkPassword;
-    repeatPassword.onfocus = eraseField;
+    repeatPassword.addEventListener("focus", function(){
+        document.getElementById("error-rep-password").style.visibility = "hidden";
+    })
 
     var age = document.getElementById("age");
     age.onblur = validateAge;
-    age.onfocus = eraseField;
+    age.addEventListener("focus", function(){
+        document.getElementById("error-age").style.visibility = "hidden";
+    })
 
     var phoneNumber = document.getElementById("phone");
     phoneNumber.onblur = validatePhoneNumber;
-    phoneNumber.onfocus = eraseField;
+    phoneNumber.addEventListener("focus", function(){
+        document.getElementById("error-phone").style.visibility = "hidden";
+    })
 
     var address = document.getElementById("address");
     address.onblur = validateAddress;
-    address.onfocus = eraseField;
-
+    address.addEventListener("focus", function(){
+        document.getElementById("error-address").style.visibility = "hidden";
+        });
+    
     var city = document.getElementById("city");
     city.onblur = validateCity;
-    city.onfocus = eraseField;
+    city.addEventListener("focus", function(){
+        document.getElementById("error-city").style.visibility = "hidden";
+    })
 
     var postalCode = document.getElementById("postal-code");
     postalCode.onblur = validatePostalCode;
-    postalCode.onfocus = eraseField;
+    postalCode.addEventListener("focus", function(){
+        document.getElementById("error-postal").style.visibility = "hidden";
+    })
 
     var idNumber = document.getElementById("id-number");
     idNumber.onblur = validateId;
-    idNumber.onfocus = eraseField;
+    idNumber.addEventListener("focus", function(){
+        document.getElementById("error-id").style.visibility = "hidden";
+    })
 
     var btn = document.getElementById("btn-submit");
-    btn.addEventListener("click", function(e){
-        alert("form sent, " + "full name: " + fullName.value  + ", email: " + email.value + ", age: " + age.value + "phone number: " + phoneNumber.value + ", address: " + address.value + ", city: " + city.value + ", postal code: " + postalCode.value + ", id number: " + idNumber.value + "."
-        )
-        e.preventDefault();
-    })
+    btn.onclick = submData;
 
 }
 
