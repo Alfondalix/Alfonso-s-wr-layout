@@ -153,13 +153,19 @@ function submData(){
     }
 
     //password err
-    var passCheck = /^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ]/;
-    if(passCheck.test(pass) && pass.length >= 8){
-        document.getElementById("error-password").style.visibility = "hidden";
-        sub.push("password: "+ pass);
-    }else{
+    
+    if(pass.length < 8){
+        document.getElementById("error-password").style.visibility = "visible";
+        err.push("password: invalid password");   
+    }else if(pass.search(/\d/) == -1){
         document.getElementById("error-password").style.visibility = "visible";
         err.push("password: invalid password");
+    }else if(passsearch(/[a-zA-Z]/) == -1){
+        document.getElementById("error-password").style.visibility = "visible";
+        err.push("password: invalid password");
+    }else{
+        document.getElementById("error-password").style.visibility = "hidden";
+        sub.push("password: "+ pass);
     }
 
     //age err
@@ -175,10 +181,7 @@ function submData(){
     }
 
     //phone err
-    if(isNaN(phone)){
-        document.getElementById("error-phone").style.visibility = "visible"
-        err.push("phone: invalid phone number");
-    }else if(phone.length < 7 || space.test(phone)){
+    if(/\D\w\S/.test(phone) || phone.length < 7){
         document.getElementById("error-phone").style.visibility = "visible"
         err.push("phone: invalid phone number");
     }else{
@@ -228,9 +231,9 @@ function submData(){
     }
 
     //display alerts
-    var errAlert = err.join("\n");   
+    var errAlert = err.join("\n"); 
+    var subAlert = sub.join("\n"); 
     if(errAlert == ""){
-        var subAlert = sub.join("\n");
         alert(subAlert);
     }else{
         alert(errAlert);
@@ -303,7 +306,10 @@ window.onload = function(){
     })
 
     var btn = document.getElementById("btn-submit");
-    btn.onclick = submData;
+    btn.addEventListener("click", function(e){
+        submData();
+        e.preventDefault();
+    })
 
 }
 
