@@ -120,9 +120,9 @@ function displayName(e){
 //input alerts
 
 function submData(){
-    
-    var err= [];
+    var err = [];
     var sub = [];
+
     var fulln = document.getElementById("full-name").value;
     var email = document.getElementById("email").value;
     var pass = document.getElementById("password").value;
@@ -132,6 +132,8 @@ function submData(){
     var city = document.getElementById("city").value;
     var postalC = document.getElementById("postal-code").value;
     var id = document.getElementById("id-number").value;
+    
+    
 
     // name err
     if(fulln.length > 6 && fulln.includes(" ")){
@@ -160,12 +162,12 @@ function submData(){
     }else if(pass.search(/\d/) == -1){
         document.getElementById("error-password").style.visibility = "visible";
         err.push("password: invalid password");
-    }else if(passsearch(/[a-zA-Z]/) == -1){
+    }else if(pass.search(/[a-zA-Z]/) == -1){
         document.getElementById("error-password").style.visibility = "visible";
         err.push("password: invalid password");
     }else{
         document.getElementById("error-password").style.visibility = "hidden";
-        sub.push("password: "+ pass);
+        sub.push("password: " + password);
     }
 
     //age err
@@ -190,14 +192,14 @@ function submData(){
     }
 
     //address err
-    let addressReg = /\w/g;
-    let addSpace = /\s\d/g;
+    var addressReg = /\w/g;
+    var addSpace = /\s\d/g;
     if(address.length >= 5 && addressReg.test(address) && addSpace.test(address)){
+        document.getElementById("error-address").style.visibility = "hidden"
+        sub.push("address: " + address);
+    }else{
         document.getElementById("error-address").style.visibility = "visible"
         err.push("address: invalid addres");
-    }else{
-        document.getElementById("error-address").style.visibility = "hidden"
-        sub.push("phone: invalid phone number");
     }
 
     //city err
@@ -214,7 +216,7 @@ function submData(){
     var postalReg = /\d/g;
     if(postalC.length >= 3 && postalReg.test(postalC)){
         document.getElementById("error-postal").style.visibility = "hidden";
-        sub.push("postal: "+ postal);
+        sub.push("postal: "+ postalC);
     }else{
         document.getElementById("error-postal").style.visibility = "visible";
         err.push("postal: invalid postal code");
@@ -231,12 +233,10 @@ function submData(){
     }
 
     //display alerts
-    var errAlert = err.join("\n"); 
-    var subAlert = sub.join("\n"); 
-    if(errAlert == ""){
-        alert(subAlert);
+    if(err == []){
+        alert(sub.join("\n"));
     }else{
-        alert(errAlert);
+        alert(sub.join("\n"));
     }
 }
 
@@ -307,8 +307,8 @@ window.onload = function(){
 
     var btn = document.getElementById("btn-submit");
     btn.addEventListener("click", function(e){
-        submData();
         e.preventDefault();
+        submData();
     })
 
 }
