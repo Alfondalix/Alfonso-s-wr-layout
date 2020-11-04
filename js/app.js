@@ -236,6 +236,7 @@ function submData(){
     if(err == []){
         alert(sub.join("\n"));
     }else{
+        alert(err.join("\n"));
         alert(sub.join("\n"));
     }
 }
