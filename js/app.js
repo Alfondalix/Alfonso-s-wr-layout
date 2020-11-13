@@ -114,7 +114,7 @@ function validateId(e){
 
 //Display name in title
 function displayName(e){
-    document.getElementById("welcome").innerText = ": Hello, " + e.target.value;
+    document.getElementById("welcome").innerText = "Hello, " + e.target.value;
 }
 
 //input alerts
@@ -167,11 +167,11 @@ function submData(){
         err.push("password: invalid password");
     }else{
         document.getElementById("error-password").style.visibility = "hidden";
-        sub.push("password: " + password);
+        sub.push("password: " + pass);
     }
 
     //age err
-    if(isNaN(age)){
+    if(typeof(age) == "number"){
         document.getElementById("error-age").style.visibility = "visible";
         err.push("age: invalid age");
     }else if(age < 18){
@@ -236,8 +236,8 @@ function submData(){
     if(err == []){
         alert(sub.join("\n"));
     }else{
-        alert(err.join("\n"));
         alert(sub.join("\n"));
+        alert(err.join("\n"));
     }
 }
 
